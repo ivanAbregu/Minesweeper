@@ -24,3 +24,12 @@ services:
       - 8000:80
     links:
       - db
+  
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    command: bash -c "npm run --prefix ./frontend start"
+    volumes:
+      - .:/app
+    ports:
+      - "3000:3000"

@@ -11,10 +11,12 @@ class GameSerializer(serializers.ModelSerializer):
 
 	class Meta:
 		model = Game
-		fields = ('id',
+
+		fields ='__all__'
+		read_only_fields =  ('id',
+					'owner',
 					'owner_full_name',
 					'status',
 					'created',
 					'cells',
 				)
-		read_only_fields = fields

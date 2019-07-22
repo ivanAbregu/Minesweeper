@@ -9,6 +9,7 @@ class Cell(models.Model):
     value = models.IntegerField()
     row_id = models.PositiveIntegerField()
     column_id = models.PositiveIntegerField()
+    flag = models.BooleanField(default=False)
     
     def isMine(self):
         return self.value == MINE

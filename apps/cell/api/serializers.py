@@ -10,4 +10,5 @@ class CellSerializer(serializers.ModelSerializer):
 					'column_id',
 					'visible',
 					'value',
+					'flag',
 				)

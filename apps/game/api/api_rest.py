@@ -44,7 +44,11 @@ class GameViewSet(ModelViewSet):
 		return obj
 	
 	def perform_update(self, serializer):
-		cell_id = serializer.initial_data.pop("cell_id", None)
+		instance = serializer.save()
+		cell_id = self.request.data.get('cell_id',None)
+		flag = self.request.data.get('flag',None)
 		if cell_id:
-			instance = serializer.save()
-			instance.showCell(cell_id)	
+			if flag is not None:
+				instance.setFlag(cell_id,flag)
+			else:
+				instance.showCell(cell_id)	

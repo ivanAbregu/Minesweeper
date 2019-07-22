@@ -27,9 +27,7 @@ class CellViewSet(ModelViewSet):
 
 	queryset = Cell.objects.all().order_by('-created')
 	serializer_class = CellSerializer
-	#permission_class = [IsAccountAdminOrReadOnly]
 	http_method_names = ['get', 'post', 'put', 'delete']
-	#filter_class = EventFilter
 	
 	def get_queryset(self):
 		qs = super(CellViewSet, self).get_queryset()
