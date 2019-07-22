@@ -42,6 +42,4 @@ class GameViewSet(ModelViewSet):
 	def perform_create(self, serializer):
 		obj = serializer.save(owner=self.request.user)
 		obj.initCells()
-		print("here"*50)
-		print(obj)
 		return obj

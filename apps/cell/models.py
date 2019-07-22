@@ -3,7 +3,7 @@ from django.db import models
 class Cell(models.Model):
     MINE = -1  #Indicate that a cell is a mine
 
-    game = models.ForeignKey('game.Game', related_name='cell_game',  on_delete=models.CASCADE)
+    game = models.ForeignKey('game.Game', related_name='cells',  on_delete=models.CASCADE)
     visible = models.BooleanField(default=False)
     value = models.IntegerField()
     row_id = models.PositiveIntegerField()

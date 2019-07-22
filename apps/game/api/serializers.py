@@ -4,8 +4,8 @@ from ..models import Game
 from apps.cell.api.serializers import CellSerializer
 
 class GameSerializer(serializers.ModelSerializer):
-	owner_full_name = serializers.SerializerMethodField(read_only= True) 
-	cells = CellSerializer(source='cell_game', many=True)
+	owner_full_name = serializers.SerializerMethodField(read_only=True) 
+	cells = CellSerializer(many=True, read_only=True)
 	def get_owner_full_name(self, obj): 
 		return obj.owner.first_name+" "+obj.owner.last_name
 
