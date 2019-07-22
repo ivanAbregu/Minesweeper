@@ -13,10 +13,7 @@ services:
       - ${DB_PORT}:5432
       
   backend:
-    build:
-      context: .
-      dockerfile: .
-    container_name: backend
+    build: .
     image: backend
     command: bash -c "sleep 5 && sh ./entrypoint.sh"
     env_file: 

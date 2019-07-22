@@ -23,9 +23,17 @@ class Game(models.Model):
     def __str__(self):
         return "%s, owner: %s" % (self.id, self.owner)
     
+    def gameOver(self):
+        self.status = self.STATUS_OVER
+        self.save()
+        for cell in self.cells.all():
+            cell.visible = True
+            cell.save()
+
+
     def setCellValues(self):
         for cell in self.cells.all():
-            if cell.value == cell.MINE:
+            if cell.isMine():
                 continue
             count_mine = 0
             for r in range(-1,2):
@@ -38,7 +46,7 @@ class Game(models.Model):
 
                     try:
                         neighbor = self.cells.get(row_id=row_id,column_id=column_id)
-                        if neighbor.value == neighbor.MINE:
+                        if neighbor.isMine():
                             count_mine += 1
                     except Exception as e:
                         pass 
@@ -54,3 +62,34 @@ class Game(models.Model):
                 cell = self.cells.create(row_id=x, column_id=y, value=values.pop())
                 cell.save()
         self.setCellValues()
+
+    def showCell(self, cell_id):
+        if self.status==Game.STATUS_PENDING:
+            self.status = Game.STATUS_STARTED
+            self.save()
+
+        cell = self.cells.get(id=cell_id)
+        if cell.isMine():
+            self.gameOver()
+        else:
+            cell.visible = True
+            cell.save()
+            if cell.value==0:
+                self.showNeighbor(cell)
+            
+    def showNeighbor(self,cell):        
+        for r in range(-1,2):
+            for c in range(-1,2):
+                if r == 0 and c == 0:
+                    continue            
+                row_id = cell.row_id + r
+                column_id = cell.column_id + c
+                try:
+                    neighbor = self.cells.get(row_id=row_id,column_id=column_id)
+                    if not neighbor.visible:
+                        neighbor.visible = True
+                        neighbor.save()
+                        if neighbor.value==0:
+                            self.showNeighbor(neighbor)
+                except Exception as e:
+                    continue 

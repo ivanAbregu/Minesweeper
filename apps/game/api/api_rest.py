@@ -29,7 +29,6 @@ class GameViewSet(ModelViewSet):
 	serializer_class = GameSerializer
 	#permission_class = [IsAccountAdminOrReadOnly]
 	http_method_names = ['get', 'post', 'put', 'delete']
-	#filter_class = EventFilter
 	
 	def get_queryset(self):
 		qs = super(GameViewSet, self).get_queryset()
@@ -43,3 +42,9 @@ class GameViewSet(ModelViewSet):
 		obj = serializer.save(owner=self.request.user)
 		obj.initCells()
 		return obj
+	
+	def perform_update(self, serializer):
+		cell_id = serializer.initial_data.pop("cell_id", None)
+		if cell_id:
+			instance = serializer.save()
+			instance.showCell(cell_id)	
