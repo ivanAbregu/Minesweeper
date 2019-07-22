@@ -1,0 +1,29 @@
+version: '3.1'
+services:
+  db:
+    image: postgres:9.5
+    container_name: db
+    env_file: 
+      - .env
+    environment:
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASS}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - ${DB_PORT}:5432
+      
+  backend:
+    build:
+      context: .
+      dockerfile: .
+    container_name: backend
+    image: backend
+    command: bash -c "sleep 5 && sh ./entrypoint.sh"
+    env_file: 
+      - .env
+    volumes:
+      - .:/app
+    ports:
+      - 8000:80
+    links:
+      - db
