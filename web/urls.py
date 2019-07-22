@@ -23,6 +23,7 @@ from rest_framework.documentation import include_docs_urls
 from apps.game.api.api_rest import GameViewSet
 
 router = routers.DefaultRouter()
+# router.register(r'users', UserViewSet)
 router.register(r'game', GameViewSet)
 
 urlpatterns = [

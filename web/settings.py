@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-     'django.contrib.sites',
+    'django.contrib.sites',
     'rest_framework',
     'django_filters',
     'allauth',
@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'rest_auth.registration',
     'web',
     'apps.game',
+    'apps.cell',
 ]
 
 
@@ -200,3 +201,5 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
