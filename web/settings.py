@@ -21,7 +21,7 @@ ALLOWED_HOSTS = ['*']
 ROOT_URLCONF = 'web.urls'
 WSGI_APPLICATION = 'web.wsgi.application'
 SITE_ID = 1
-
+STATIC_ROOT = BASE_DIR + '/static/'
 
 ###############################################################################
 #  Application definition
