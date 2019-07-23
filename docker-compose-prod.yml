@@ -45,7 +45,7 @@ services:
     command: /bin/bash -c "sleep 5 && nginx -g 'daemon off;'"
     volumes:
       - ./logs/nginx:/tmp/logs
-      - ./nginx2:/etc/nginx/conf.d/default.conf
+      - ./nginx:/etc/nginx/conf.d/default.conf
       - ./static:/opt/app/static
       - ./media:/opt/app/media
       - ./frontend/build:/var/www/frontend # maps frontend build inside nginx
