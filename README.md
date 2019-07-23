@@ -18,8 +18,8 @@ Also Designed a Frontend projects with React.js to consume the api an play.
 
 ## Run on local machine
 Run the next command to run the projects on your local machine.
-docker-compose up
-Whit this configuration
+* docker-compose up
+With this configuration
 Then you could consume the api on http://0.0.0.0:8000
 Also you could play on the react implementation http://0.0.0.0:3000
 
