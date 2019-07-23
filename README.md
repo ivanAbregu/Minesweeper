@@ -4,17 +4,17 @@ Designed and implemented a RESTful API for the game minesweeper.
 Also Designed a Frontend projects with React.js to consume the api an play.
 
 ## Relevant Technologies:
-Docker
-Docker Compose
-Django
-Django REST framework
-JWT
-Rest Auth
-Postgresql
-React.js
-React Hooks
-Gunicorn
-Nginx
+* Docker
+* Docker Compose
+* Django
+* Django REST framework
+* JWT
+* Rest Auth
+* Postgresql
+* React.js
+* React Hooks
+* Gunicorn
+* Nginx
 
 ## Run on local machine
 Run the next command to run the projects on your local machine.
