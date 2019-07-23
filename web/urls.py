@@ -16,22 +16,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-# from rest_auth.registration.views import RegisterView
 from rest_auth.views import LogoutView, LoginView 
 from rest_framework import routers
-from rest_framework.documentation import include_docs_urls
+
 from apps.game.api.api_rest import GameViewSet
 
 router = routers.DefaultRouter()
-# router.register(r'users', UserViewSet)
-router.register(r'game', GameViewSet)
+router.register('game', GameViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/', include('rest_framework.urls')),
     # API
-    path('rest-auth/', include('rest_auth.urls')),
-    path('rest-auth/registration/', include('rest_auth.registration.urls')),
+    path('api/rest-auth/', include('rest_auth.urls')),
+    path('api/rest-auth/registration/', include('rest_auth.registration.urls')),
     path('api/', include(router.urls)),
-
 ]
