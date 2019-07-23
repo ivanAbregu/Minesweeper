@@ -31,8 +31,6 @@ services:
     command: bash -c "npm run --prefix ./frontend start"
     volumes:
       - .:/app
-    ports:
-      - "3000:3000"
   nginx:
     image: nginx:latest
     env_file: .env
@@ -47,9 +45,10 @@ services:
     command: /bin/bash -c "sleep 5 && nginx -g 'daemon off;'"
     volumes:
       - ./logs/nginx:/tmp/logs
-      - ./nginx:/etc/nginx/conf.d/default.conf
+      - ./nginx2:/etc/nginx/conf.d/default.conf
       - ./static:/opt/app/static
       - ./media:/opt/app/media
+      - ./frontend/build:/var/www/frontend # maps frontend build inside nginx
     depends_on:
       - backend
 
