@@ -15,7 +15,7 @@ services:
   backend:
     build: .
     image: backend
-    command: bash -c "sleep 5 && sh ./entrypoint.sh"
+    command: bash -c "sleep 5 && sh ./entrypoint-prod.sh"
     env_file: 
       - .env
     volumes:
