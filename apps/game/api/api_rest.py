@@ -13,22 +13,15 @@ class GameViewSet(ModelViewSet):
         Return a list of all the existing Games.
 
         create:
-        Create a new Game instance.
+        Create a new Game instance associated with the authenticated user.
 
         update:
         Update a Game instance
-
-        partial_update:
-        Partial update a Game instance.
-
-        profile:
-        Create a new Game instance associated with the authenticated user
     """
 
 	queryset = Game.objects.all().order_by('-created')
 	serializer_class = GameSerializer
-	#permission_class = [IsAccountAdminOrReadOnly]
-	http_method_names = ['get', 'post', 'put', 'delete']
+	http_method_names = ['get', 'post', 'put']
 	
 	def get_queryset(self):
 		qs = super(GameViewSet, self).get_queryset()
@@ -42,7 +35,8 @@ class GameViewSet(ModelViewSet):
 		obj = serializer.save(owner=self.request.user)
 		obj.initCells()
 		return obj
-	
+		
+	"""Aditionals params:[cell_id, flag] to handle the update of the game and its cells"""	
 	def perform_update(self, serializer):
 		instance = serializer.save()
 		cell_id = self.request.data.get('cell_id',None)

@@ -24,7 +24,8 @@ class Game(models.Model):
 
     def __str__(self):
         return "%s, owner: %s" % (self.id, self.owner)
-    
+
+    """ Set the status of the game on lost and visible all the cells"""
     def gameLost(self):
         self.status = self.STATUS_LOST
         self.save()
@@ -32,7 +33,7 @@ class Game(models.Model):
             cell.visible = True
             cell.save()
 
-
+    """Set the values of each cell"""
     def setCellValues(self):
         for cell in self.cells.all():
             if cell.isMine():
@@ -54,7 +55,8 @@ class Game(models.Model):
                         pass 
             cell.value = count_mine
             cell.save()
-
+    
+    """Create cells"""
     def initCells(self):
         cero_cells = self.row_size*self.column_size - self.mines_size 
         values = [0]*cero_cells + [-1]*self.mines_size
@@ -65,6 +67,7 @@ class Game(models.Model):
                 cell.save()
         self.setCellValues()
 
+    """ Show a cell and if no adjacent mines, all adjacent squares will be revealed (and repeat)"""
     def showCell(self, cell_id):
         if self.status==Game.STATUS_PENDING:
             self.status = Game.STATUS_STARTED
@@ -96,7 +99,7 @@ class Game(models.Model):
                             self.showNeighbor(neighbor)
                 except Exception as e:
                     continue 
- 
+    """Set flag of a cell, the max flags able to set is the number of mines"""
     def setFlag(self, cell_id,flag):
         cells_flags = self.cells.filter(flag=True).count()
         if cells_flags == self.mines_size and flag==True: 
@@ -105,7 +108,7 @@ class Game(models.Model):
         cell.flag = flag
         cell.save()
         self.verifyGame()
-    
+    """Verify if all the flags were put it and there aren't cell without show"""
     def verifyGame(self):
         mines_flags = self.cells.filter(value = -1,flag=True)
         cells_not_visible = self.cells.exclude(value=-1).filter(visible=False)
