@@ -22,16 +22,15 @@ export default props =>{
                 console.log("Error",error)
             });
     },[]) 
-
-    // Handle User Events
-    function handleCellClick(cell_id) {
+    function fetchUpdate(obj){
+        console.log("HERERE",obj)
         let game_id = boardData.id
         const url = `${URL}${game_id}/`
         let headers = {
             'Content-Type': 'application/json',
             'Authorization': `JWT ${TOKEN}`
         };
-        let body = JSON.stringify({cell_id});
+        let body = JSON.stringify(obj);
         fetch(url, {headers, method: "PUT",body})
             .then(res => res.json())
             .then(obj => setBoardData(obj))
@@ -39,7 +38,14 @@ export default props =>{
                 console.log("Error",error)
             });
     }
-
+    // Handle User Events
+    function handleCellClick(cell_id) {
+        fetchUpdate({cell_id})
+    }
+   function _handleContextMenu(e, cell) {
+        e.preventDefault();
+        fetchUpdate({cell_id:cell.id, flag:!cell.flag})
+   }
     function renderBoard(data) {
         let result = []
         for (let row = 0; row < data.row_size; row++) {
@@ -49,6 +55,7 @@ export default props =>{
                     <div key={item.id}>
                         <Cell
                             onClick={() => handleCellClick(item.id)}
+                            cMenu={(e) => _handleContextMenu(e, item)}
                             cell={item}
                         />
                         {item.column_id === data.column_size-1 ? <div className="clear" /> : ""}

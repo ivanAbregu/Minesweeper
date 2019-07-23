@@ -5,7 +5,7 @@ export default props =>{
 
     function getValue(){
         if (!cell.visible){
-            return cell.isFlagged ? "🚩" : null;
+            return cell.flag ? "🚩" : null;
         }
         if (cell.value===-1) {
             return "💣";
@@ -20,7 +20,7 @@ export default props =>{
 
 
         return (
-            <div   onClick={props.onClick} className={className} >
+            <div onClick={props.onClick} className={className} onContextMenu={props.cMenu} >
                 {getValue()}
             </div>
         );

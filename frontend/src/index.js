@@ -45,7 +45,7 @@ class App extends React.Component {
         const { height, width, mines } = this.state;
         return (
             <div className="game">
-                <Board height={16} width={16} mines={40} />
+                <Board height={6} width={6} mines={2} />
             </div>
         );
     }
