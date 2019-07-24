@@ -26,12 +26,12 @@ services:
     links:
       - db
   
-  frontend:
-    build: ./frontend
-    container_name: frontend
-    command: bash -c "npm run --prefix ./frontend start"
-    volumes:
-      - .:/app
+  # frontend:
+  #   build: ./frontend
+  #   container_name: frontend
+  #   command: bash -c "npm run --prefix ./frontend start"
+  #   volumes:
+  #     - .:/app
   nginx:
     image: nginx:latest
     env_file: .env
