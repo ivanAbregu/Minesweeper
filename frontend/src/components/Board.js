@@ -1,15 +1,15 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import Cell from './Cell';
 import Loading from './Loading';
-import {URL,TOKEN} from "./Const"
-
+import {URL} from "./Const";
+import myContext from '../context/my-context';
 export default props =>{
     const [boardData, setBoardData] = useState(); 
-
+    const context = useContext(myContext)
     useEffect(()=>{
         let headers = {
             'Content-Type': 'application/json',
-            'Authorization': `JWT ${TOKEN}`
+            'Authorization': `JWT ${context.token}`
         };
         let body = JSON.stringify({row_size:props.height,
                                     column_size:props.width,
@@ -23,12 +23,11 @@ export default props =>{
             });
     },[]) 
     function fetchUpdate(obj){
-        console.log("HERERE",obj)
         let game_id = boardData.id
         const url = `${URL}${game_id}/`
         let headers = {
             'Content-Type': 'application/json',
-            'Authorization': `JWT ${TOKEN}`
+            'Authorization': `JWT ${context.token}`
         };
         let body = JSON.stringify(obj);
         fetch(url, {headers, method: "PUT",body})
@@ -69,12 +68,12 @@ export default props =>{
     }
 
     return (
-        <div className="board">
-            <div className="game-info">
-                <h1 className="info">{boardData && boardData.status? boardData.status : ""}</h1>
-            </div>
+        <div className="App">
             {boardData && 
-                renderBoard(boardData)
+                <div>
+                    {renderBoard(boardData)}
+                    <h1>{boardData.status}</h1>
+                </div>
             }
             {!boardData && 
                 <Loading />

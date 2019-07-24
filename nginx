@@ -1,21 +1,21 @@
+upstream api {
+    server mine_backend:8000;
+}
 server {
     listen 80;
-
-    client_max_body_size 4G;
-    chunked_transfer_encoding       off;
 
     access_log /tmp/logs/nginx-access.log;
     error_log /tmp/logs/nginx-error.log;
 
-    location /static/ {
-        alias   /opt/app/static/;
+    location /django-static/ {
+        alias   /opt/app/django-static/;
     }
 
     location /media/ {
         alias   /opt/app/media/;
     }
 
-    location /{
+    location /admin/ {
         proxy_connect_timeout 5000s;
         proxy_read_timeout 5000s;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
@@ -26,10 +26,33 @@ server {
         proxy_redirect off;
 
         if (!-f $request_filename) {
-            proxy_pass http://backend:8000;
+            proxy_pass http://mine_backend:8000;
             break;
         }
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection "upgrade";
+    }
+
+    location /api/{
+        proxy_connect_timeout 5000s;
+        proxy_read_timeout 5000s;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+
+        proxy_set_header Host $http_host;
+
+        proxy_buffering off;
+        proxy_redirect off;
+
+        if (!-f $request_filename) {
+            proxy_pass http://mine_backend:8000;
+            break;
+        }
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+    }
+
+    location / {
+      root /var/www/frontend;
+      try_files $uri $uri/ /index.html;
     }
 }

@@ -1,2 +1,2 @@
 export const URL = `http://${window.location.hostname}:8000/api/game/`;
-export const TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJ1c2VybmFtZSI6InJvb3QiLCJleHAiOjQ1NjM4MzQyNzksImVtYWlsIjoiIiwib3JpZ19pYXQiOjE1NjM4MzQyNzl9.NrU9E7KdSYrJ90S2TM3lXq8ScYkvofq8jrM9KPG_GIc";
+export const LOGIN_URL = `http://${window.location.hostname}:8000/api/rest-auth/login/`;

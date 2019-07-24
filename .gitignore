@@ -19,7 +19,8 @@ tests/report/
 **/.sass-cache/
 **/CACHE/
 **/media
-
+django-static/
+static/
 .vscode/
 .env
 

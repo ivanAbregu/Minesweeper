@@ -9,9 +9,7 @@ body {
 }
 
 .game {
-  display: flex;
-  flex-direction: column;
-  margin: 0 auto;
+  text-align: center;
 }
 
 .game-info {
@@ -40,4 +38,14 @@ body {
 .is-flag,
 .is-mine {
   color: #fc543c;
+}
+
+.App {
+  text-align: center;
+  align:"center"
+}
+
+.Loguin {
+  text-align: center;
+  width: 250px;
 }
