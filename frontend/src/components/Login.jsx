@@ -1,7 +1,7 @@
 import React,{useContext} from 'react';
 import { Form, Icon, Input, Button, Checkbox } from 'antd';
 import 'antd/dist/antd.css'; 
-import {LOGIN_URL} from "./Const";
+import {LOGIN_URL, getCookie} from "./Const";
 import myContext from "../context/my-context"
 
 const NormalLoginForm= (props)=> {
@@ -12,6 +12,7 @@ const NormalLoginForm= (props)=> {
       if (!err) {
         let headers = {
           'Content-Type': 'application/json',
+          'X-CSRFToken': getCookie('csrftoken'),
         };
         let body = JSON.stringify(values);
         fetch(LOGIN_URL, {headers, method: "POST",body})

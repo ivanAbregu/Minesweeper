@@ -1,7 +1,7 @@
 import React,{useState,useEffect,useContext} from 'react';
 import Cell from './Cell';
 import Loading from './Loading';
-import {URL} from "./Const";
+import {URL,getCookie} from "./Const";
 import myContext from '../context/my-context';
 export default props =>{
     const [boardData, setBoardData] = useState(); 
@@ -9,7 +9,8 @@ export default props =>{
     useEffect(()=>{
         let headers = {
             'Content-Type': 'application/json',
-            'Authorization': `JWT ${context.token}`
+            'Authorization': `JWT ${context.token}`,
+            'X-CSRFToken': getCookie('csrftoken'),
         };
         let body = JSON.stringify({row_size:props.height,
                                     column_size:props.width,
@@ -27,7 +28,8 @@ export default props =>{
         const url = `${URL}${game_id}/`
         let headers = {
             'Content-Type': 'application/json',
-            'Authorization': `JWT ${context.token}`
+            'Authorization': `JWT ${context.token}`,
+            'X-CSRFToken': getCookie('csrftoken'),
         };
         let body = JSON.stringify(obj);
         fetch(url, {headers, method: "PUT",body})
