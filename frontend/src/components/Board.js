@@ -3,6 +3,9 @@ import Cell from './Cell';
 import Loading from './Loading';
 import {URL,getCookie} from "./Const";
 import myContext from '../context/my-context';
+import { Button } from 'antd';
+import 'antd/dist/antd.css'; 
+
 export default props =>{
     const [boardData, setBoardData] = useState(); 
     const context = useContext(myContext)
@@ -75,6 +78,7 @@ export default props =>{
                 <div>
                     {renderBoard(boardData)}
                     <h1>{boardData.status}</h1>
+                    <Button onClick={()=>props.restart()}>Restart</Button>
                 </div>
             }
             {!boardData && 

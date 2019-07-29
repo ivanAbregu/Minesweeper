@@ -1,5 +1,5 @@
-export const URL = `http://${window.location.hostname}/api/game/`;
-export const LOGIN_URL = `http://${window.location.hostname}/api/rest-auth/login/`;
+export const URL = `http://${window.location.hostname}:8000/api/game/`;
+export const LOGIN_URL = `http://${window.location.hostname}:8000/api/rest-auth/login/`;
 
 export const getCookie = name => {
     let cookieValue = null;
