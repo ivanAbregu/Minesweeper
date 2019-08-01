@@ -1,5 +1,9 @@
-export const URL = `http://${window.location.hostname}/api/game/`;
-export const LOGIN_URL = `http://${window.location.hostname}/api/rest-auth/login/`;
+let BASE_URL = window.location.href;
+if (window.location.href === "http://localhost:3000/")
+    BASE_URL = "http://0.0.0.0:8000/"
+
+export const URL = `${BASE_URL}api/game/`;
+export const LOGIN_URL = `${BASE_URL}api/rest-auth/login/`;
 
 export const getCookie = name => {
     let cookieValue = null;

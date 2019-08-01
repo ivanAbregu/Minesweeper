@@ -1,6 +1,7 @@
 import React,{useContext,useState} from 'react';
 import Board from './Board';
 import Login from './Login';
+import SignUp from './SignUp';
 import myContext from '../context/my-context';
 
 export default function App(props) {
@@ -12,6 +13,7 @@ export default function App(props) {
     }
     return (
     <div className="App">
+        <SignUp />
         {!context.token && <Login />}
         {context.token && 
          show &&
