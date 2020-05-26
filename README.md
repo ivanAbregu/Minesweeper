@@ -1,7 +1,7 @@
 # minesweeper-API
 API test
 Designed and implemented a RESTful API for the game minesweeper.
-Also Designed a Frontend projects with React.js to consume the api an play.
+Also Designed a Frontend projects with React.js to consume the api and play.
 
 ## Relevant Technologies:
 * Docker
