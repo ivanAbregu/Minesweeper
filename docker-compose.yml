@@ -3,25 +3,25 @@ services:
   db:
     image: postgres:9.5
     container_name: db
-    env_file: 
-      - .env
-    environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASS}
-      - POSTGRES_DB=${DB_NAME}
-    ports:
-      - ${DB_PORT}:5432
-      
+    env_file: ./docker/.env
+#    ports:
+#      - 5432:5432
   backend:
-    build: .
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
     image: backend
-    command: bash -c "sleep 5 && sh ./entrypoint.sh"
-    env_file: 
-      - .env
+    container_name: backend
+    command: bash -c "sleep 4 && sh ./docker/entrypoint.sh"
+    env_file:
+      - ./docker/.env
     volumes:
-      - .:/app
+      - .:/code
     ports:
       - 8000:80
+    ######### stdin_open and tty to debug
+    stdin_open: true
+    tty: true
     links:
       - db
   
@@ -33,3 +33,5 @@ services:
       - .:/app
     ports:
       - "3000:3000"
+    stdin_open: true
+    tty: true
