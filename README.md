@@ -1,20 +1,23 @@
-# minesweeper-API
+# minesweeper
 API test
 Designed and implemented a RESTful API for the game minesweeper.
-Also Designed a Frontend projects with React.js to consume the api an play.
+Also Designed a Frontend projects with React.js to consume the api and play.
 
 ## Relevant Technologies:
-* Docker
-* Docker Compose
-* Django
-* Django REST framework
-* JWT
+* [Docker](https://www.docker.com/)
+* [Docker Compose](https://docs.docker.com/compose/) 
+* [Python 3.8](https://docs.python.org/3/)
+* [Poetry](https://python-poetry.org/)
+* [Django 3.0](https://docs.djangoproject.com/en/3.1/releases/3.0/)
+* [Django REST framework](https://www.django-rest-framework.org/)
+* [REST framework JWT Auth](https://github.com/Styria-Digital/django-rest-framework-jwt) 
 * Rest Auth
-* Postgresql
-* React.js
-* React Hooks
-* Gunicorn
-* Nginx
+* [PostgreSQL](https://www.postgresql.org/)
+* [React.js](https://reactjs.org/)
+* [React Hooks](https://reactjs.org/docs/hooks-overview.html)
+* [Ant Design](https://ant.design/)
+* [Gunicorn](https://gunicorn.org/)
+* [Nginx](https://www.nginx.com/)
 
 ## Run on local machine
 Run the next command to run the projects on your local machine.

@@ -1,7 +1,7 @@
 from rest_framework.viewsets import ModelViewSet
 
-from .serializers import CellSerializer
-from ..models import Cell
+from apps.cell.api.v1.serializers import CellSerializer
+from apps.cell.models import Cell
 
 
 class CellViewSet(ModelViewSet):
@@ -25,7 +25,7 @@ class CellViewSet(ModelViewSet):
         Create a new Cell instance associated with the authenticated user
     """
 
-    queryset = Cell.objects.all().order_by("-created")
+    queryset = Cell.objects.all()
     serializer_class = CellSerializer
     http_method_names = ["get", "post", "put", "delete"]
 

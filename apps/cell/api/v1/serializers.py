@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ..models import Cell
+from apps.cell.models import Cell
 
 
 class CellSerializer(serializers.ModelSerializer):
@@ -8,8 +8,8 @@ class CellSerializer(serializers.ModelSerializer):
         model = Cell
         fields = (
             "id",
-            "row_id",
-            "column_id",
+            "row",
+            "column",
             "visible",
             "value",
             "flag",

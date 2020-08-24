@@ -5,7 +5,7 @@ description = "something"
 authors = ["ivan"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.8"
 django = "^3.0.7"
 psycopg2 = "^2.8.5"
 django-cors-headers = "^3.4.0"
@@ -13,6 +13,7 @@ djangorestframework = "^3.11.1"
 markdown = "^3.2.2"
 django-filter = "^2.3.0"
 django-rest-auth = "^0.9.5"
+Faker = "^4.1.2"
 
 [tool.poetry.dev-dependencies]
 
