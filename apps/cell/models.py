@@ -33,12 +33,18 @@ class Cell(models.Model):
         return self.value == MINE
 
     def set_neighbors(self) -> None:
+        count_mine = 0
         for r, c in COORDINATES_NEIGHBORS:
             row = self.row + r
             column = self.column + c
             with suppress(Exception):
                 neighbor = self.game.cells.get(row=row, column=column)
                 self.neighbors.add(neighbor)
+                if neighbor.is_mine:
+                    count_mine += 1
+        if not self.is_mine:
+            self.value = count_mine
+            self.save()
 
     def get_absolute_url(self) -> reverse_lazy:
         return reverse_lazy("cell-detail", args=[str(self.id)])

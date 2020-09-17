@@ -21,7 +21,7 @@ class GameViewSet(ModelViewSet):
 
     queryset = Game.objects.all().order_by("-created")
     serializer_class = GameSerializer
-    http_method_names = ["get", "post", "put"]
+    http_method_names = ["get", "post", "put", "patch"]
 
     def get_queryset(self):
         qs = super(GameViewSet, self).get_queryset()

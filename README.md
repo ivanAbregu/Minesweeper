@@ -1,5 +1,4 @@
 # minesweeper
-API test
 Designed and implemented a RESTful API for the game minesweeper.
 Also Designed a Frontend projects with React.js to consume the api and play.
 
@@ -10,12 +9,15 @@ Also Designed a Frontend projects with React.js to consume the api and play.
 * [Poetry](https://python-poetry.org/)
 * [Django 3.0](https://docs.djangoproject.com/en/3.1/releases/3.0/)
 * [Django REST framework](https://www.django-rest-framework.org/)
-* [REST framework JWT Auth](https://github.com/Styria-Digital/django-rest-framework-jwt) 
-* Rest Auth
+* [Black](https://github.com/psf/black)
 * [PostgreSQL](https://www.postgresql.org/)
 * [React.js](https://reactjs.org/)
 * [React Hooks](https://reactjs.org/docs/hooks-overview.html)
-* [Ant Design](https://ant.design/)
+* [reactrouter](https://reactrouter.com/)
+* [Material UI](https://material-ui.com/)
+* [Redux](https://redux.js.org/)
+* [Redux-saga](https://redux-saga.js.org/)
+* [TypeScript](https://www.typescriptlang.org/)
 * [Gunicorn](https://gunicorn.org/)
 * [Nginx](https://www.nginx.com/)
 

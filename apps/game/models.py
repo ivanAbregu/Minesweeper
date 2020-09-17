@@ -60,7 +60,10 @@ class Game(models.Model):
     def show_cell(self, cell_id: int) -> None:
         """ Show a cell and if no adjacent mines, all adjacent squares will be revealed (and repeat)"""
         cell = self.cells.get(id=cell_id)
-        if cell.is_mine:
+        if cell.flag:
+            cell.flag = False
+            cell.save()
+        elif cell.is_mine:
             self._game_lost()
         else:
             cell.visible = True
@@ -91,7 +94,7 @@ class Game(models.Model):
 
     def _show_neighbor(self, cell: Cell) -> None:
         for neighbor in cell.neighbors.all():
-            if not neighbor.visible:
+            if not neighbor.visible and not neighbor.flag:
                 neighbor.visible = True
                 neighbor.save()
                 if neighbor.value == 0:

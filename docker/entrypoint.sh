@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 #pip install --trusted-host=pypi.org --trusted-host=files.pythonhosted.org -r /code/requirements/dev.txt
+
+# poetry install --dev
+
 ./manage.py makemigrations
 ./manage.py migrate
 
