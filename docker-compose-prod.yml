@@ -3,42 +3,33 @@ services:
   db:
     image: postgres:9.5
     container_name: db
+    env_file: ./docker/.env
+
+  backend:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile
+    image: backend
+    container_name: backend
+    command: bash -c "sleep 5 && sh ./docker/entrypoint-prod.sh"
     env_file: 
-      - .env
-    environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASS}
-      - POSTGRES_DB=${DB_NAME}
-    ports:
-      - ${DB_PORT}:5432
-      
-  mine_backend:
-    build: .
-    image: mine_backend
-    container_name: mine_backend
-    command: bash -c "sleep 5 && sh ./entrypoint-prod.sh"
-    env_file: 
-      - .env
+      - ./docker/.env
     volumes:
-      - .:/app
+      - .:/code
     expose:
       - "8000"
     links:
       - db
   
-  # frontend:
-  #   build: ./frontend
-  #   container_name: frontend
-  #   command: bash -c "npm run --prefix ./frontend start"
-  #   volumes:
-  #     - .:/app
   nginx:
     image: nginx:latest
-    env_file: .env
+#    env_file: .env
+    env_file:
+      - ./docker/.env
     ports:
       - "80:80"
     links:
-      - mine_backend
+      - backend
     deploy:
       replicas: 1
       restart_policy:
@@ -51,7 +42,7 @@ services:
       - ./media:/opt/app/media
       - ./frontend/build:/var/www/frontend # maps frontend build inside nginx
     depends_on:
-      - mine_backend
+      - backend
 
 volumes:
   web-db:

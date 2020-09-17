@@ -18,7 +18,7 @@ ALLOWED_HOSTS = ["*"]
 
 WSGI_APPLICATION = "web.wsgi.application"
 SITE_ID = 1
-STATIC_ROOT = BASE_DIR + "/static/"
+STATIC_ROOT = "/django-static/"
 
 # Application definition
 
