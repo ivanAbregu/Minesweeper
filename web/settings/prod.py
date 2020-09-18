@@ -1,10 +1,7 @@
 from .base import *
-ENVIRONMENT_NAME = 'Production'
 
-STATIC_URL = '/static/'
+ENVIRONMENT_NAME = "Production"
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'django-static')
-# ]
-STATIC_ROOT = '/static/'
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS += ["*"]
+STATIC_ROOT = BASE_DIR + "/django-static/"
+STATIC_URL = "/django-static/"
