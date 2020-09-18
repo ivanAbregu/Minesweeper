@@ -20,7 +20,7 @@ tests/report/
 **/CACHE/
 **/media
 django-static/
-static/
+#static/
 .vscode/
 .env
 
