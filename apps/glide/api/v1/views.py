@@ -33,15 +33,39 @@ class BaseView(APIView):
 
 
 class EmployeesView(BaseView):
+    """
+        retrieve:
+        Return the given Employee.
+
+        list:
+        Return a list of Employees.
+    """
+
     serializer = EmployeeSerializer
     service = EmployeesServices
 
 
 class OfficesView(BaseView):
+    """
+        retrieve:
+        Return the given Office.
+
+        list:
+        Return a list of Offices.
+    """
+
     serializer = OfficeSerializer
     service = OfficesServices
 
 
 class DepartmentsView(BaseView):
+    """
+        retrieve:
+        Return the given Department.
+
+        list:
+        Return a list of Departments.
+    """
+
     serializer = DepartmentSerializer
     service = DepartmentsServices

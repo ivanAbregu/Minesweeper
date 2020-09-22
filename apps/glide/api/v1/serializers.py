@@ -17,7 +17,7 @@ class CustomBaseSerializer(serializers.Serializer):
         self.res_expand = set()
 
     def should_expand(self, lookup_field: str) -> bool:
-        """ Set the field expand"""
+        """ return boolean if has to expand and save the next level of expand"""
         expand = self.context.get("expand", [])
         result = False
         for x in expand:
@@ -31,6 +31,7 @@ class CustomBaseSerializer(serializers.Serializer):
         return result
 
     def get_serialized_data(self, obj, look_up: str, serializer, data):
+        """Return the data serialized if has to expand or the id"""
         _id = obj.get(look_up)
         if self.should_expand(look_up):
             instance = next((x for x in data if x.get("id") == _id), None)
