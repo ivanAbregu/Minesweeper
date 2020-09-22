@@ -10,7 +10,7 @@ import { PrivateRoute } from './components/user/PrivateRoute';
 import SignIn from './components/user/SignIn';
 import Dashboard from './components/Dashboard';
 import WhatIDo from './components/WhatIDo';
-import Porfolio from './components/Porfolio';
+import Portfolio from './components/Portfolio';
 import About from './components/About';
 import Contact from './components/Contact';
 import Game from './components/game/Main';
@@ -35,8 +35,8 @@ function App() {
           <Route path="/what-i-do">
             <WhatIDo />
           </Route>
-          <Route path="/porfolio">
-            <Porfolio />
+          <Route path="/portfolio">
+            <Portfolio />
           </Route>
           <Route path="/about">
             <About />

@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-export default function Porfolio() {
+export default function Portfolio() {
   const classes = useStyles();
   const api_docs_url = `${process.env.REACT_APP_API_BASE_URL}/api/docs/`;
 
@@ -53,7 +53,7 @@ export default function Porfolio() {
         m={1}
         className={classes.box}
       >
-        Porfolio
+        Portfolio
       </Box>
       <Box fontSize="h4.fontSize" m={1} className={classes.box}>
         I created the current website you are looking at to show you what I can do with

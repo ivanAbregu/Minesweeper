@@ -24,7 +24,7 @@ export default function TopBar() {
           <Container>
             <LinkButton path="/" label="home" />
             <LinkButton path="/what-i-do" label="what i do" />
-            <LinkButton path="/porfolio" label="porfolio" />
+            <LinkButton path="/portfolio" label="portfolio" />
             <LinkButton path="/about" label="about" />
             <LinkButton path="/game" label="mineweeper" />
             <LinkButton path="/contact" label="contact" />
