@@ -14,9 +14,6 @@ class EmployeesServices:
         self.pk = pk
 
     def get_default_header(self) -> Dict[str, str]:
-        """
-        Return default header for consumer ceiba api
-        """
         return {
             "Content-Type": "application/json",
         }
@@ -33,4 +30,6 @@ class EmployeesServices:
 
         response = requests.get(URL, params=params, headers=self.get_default_header())
         data = response.json()
+        if self.pk:
+            return data[0]
         return data
