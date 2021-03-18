@@ -13,7 +13,6 @@ const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     box: {
       'text-align': 'center',
-      color: 'white',
       margin: 30,
     },
     cardGrid: {
@@ -44,7 +43,7 @@ export default function WhatIDo() {
         m={1}
         className={classes.box}
       >
-        WHAT I DO
+        What I do
       </Box>
       <Box fontSize="h4.fontSize" m={1} className={classes.box}>
         Things I'm skilled at and passionate about.

@@ -64,7 +64,7 @@ export default function Portfolio() {
       </Box>
       <Container className={classes.cardGrid} maxWidth="lg">
         <Grid container spacing={2}>
-          <Grid item xs={3} sm={3} md={6}>
+          <Grid item xs={6} sm={6} md={6}>
             <Card className={classes.card}>
               <CardContent className={classes.cardContent}>
                 <Typography
@@ -157,7 +157,7 @@ export default function Portfolio() {
             </Card>
           </Grid>
 
-          <Grid item xs={3} sm={3} md={6}>
+          <Grid item xs={6} sm={6} md={6}>
             <Card className={classes.card}>
               <CardContent className={classes.cardContent}>
                 <Typography
@@ -229,9 +229,9 @@ export default function Portfolio() {
           </Grid>
         </Grid>
         <Box fontSize="h4.fontSize" m={1} className={classes.box}>
-          Check the code here:{' '}
+          Check the code on my github:{' '}
           <Link color="secondary" href="https://github.com/ivanAbregu/Minesweeper">
-            https://github.com/ivanAbregu/Minesweeper
+            ivanAbregu
           </Link>
         </Box>
       </Container>

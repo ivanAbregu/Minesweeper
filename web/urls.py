@@ -12,7 +12,7 @@ urlpatterns = (
     path("api/rest-auth/registration/", include("rest_auth.registration.urls")),
     path("api/v1/", include("apps.game.api.v1.urls")),
     path("api/v1/", include("apps.cell.api.v1.urls")),
-    path("api/v1/", include("apps.glide.api.v1.urls")),
+    # path("api/v1/", include("apps.glide.api.v1.urls")),
     path(
         "api/docs/",
         include_docs_urls(

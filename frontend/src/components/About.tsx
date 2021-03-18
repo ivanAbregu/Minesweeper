@@ -37,7 +37,6 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function About() {
   const classes = useStyles();
-  const api_docs_url = `${process.env.REACT_APP_API_BASE_URL}/api/docs/`;
 
   return (
     <Grid>
@@ -47,7 +46,7 @@ export default function About() {
         m={1}
         className={classes.box}
       >
-        ABOUT ME
+        About me
       </Box>
       <Box fontSize="h4.fontSize" m={1} className={classes.box}>
         Hi there! I am a Fullstack developer specialized in Django and React.

@@ -98,31 +98,23 @@ export default function SimpleTable() {
     return result;
   }
   function success() {
-    if (status == 'win')
-      return (
-        <Box
+    let text = '';
+    if (status == 'win'){
+      text = 'You Win!';
+    }else if(status == 'lost')
+      text = 'You Lost :(';
+
+    return <Box
           fontSize="h2.fontSize"
           fontWeight="fontWeightBold"
           m={1}
           className={classes.box}
         >
-          You Win!
-          <Confetti width={width} height={height} numberOfPieces={450} />
+          {text}
+          {status == 'win' && <Confetti width={width} height={height} numberOfPieces={450} />}
         </Box>
-      );
-    if (status == 'lost')
-      return (
-        <Box
-          fontSize="h2.fontSize"
-          fontWeight="fontWeightBold"
-          m={1}
-          className={classes.box}
-        >
-          You Lost :(
-        </Box>
-      );
-    return <Box className={classes.box} />;
   }
+
   function renderBoard() {
     if (getGameInProgress)
       return (

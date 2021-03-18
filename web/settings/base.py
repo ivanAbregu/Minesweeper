@@ -47,7 +47,6 @@ LOCAL_APPS = [
     "apps.user",
     "apps.game",
     "apps.cell",
-    "apps.glide",
 ]
 
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

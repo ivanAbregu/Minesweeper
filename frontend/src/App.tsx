@@ -1,4 +1,4 @@
-import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider,responsiveFontSizes } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
@@ -15,9 +15,11 @@ import About from './components/About';
 import Contact from './components/Contact';
 import Game from './components/game/Main';
 
+let theme = responsiveFontSizes(appMaterial);
+
 function App() {
   return (
-    <ThemeProvider theme={appMaterial}>
+    <ThemeProvider theme={theme}>
       <Router>
         <CssBaseline />
 

@@ -1,57 +1,46 @@
 import React from 'react';
-
-import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-
+import CssBaseline from '@material-ui/core/CssBaseline';
+import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
 import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
-    box: {
-      'text-align': 'center',
-      margin: 60,
+    content: {
+      padding: theme.spacing(22, 10, 0),
     },
     django: {
       color: theme.palette.primary.main,
-      marginRight: '60px',
-    },
-    react: {
-      color: '#61dafb',
-      marginBottom: 50,
-      marginLeft: '60px',
-    },
-  })
-);
+  },
+  react: {
+    color: '#61dafb',
+  },
+}));
 
 export default function Dashboard() {
   const classes = useStyles();
 
   return (
-    <Grid>
-      <Box
-        fontSize="h1.fontSize"
-        fontWeight="fontWeightBold"
-        m={1}
-        className={classes.box}
-      >
-        Iván Abregú
-      </Box>
-      <Box fontSize="h1.fontSize" m={1} className={classes.box}>
-        Full Stack
-      </Box>
-      <Box
-        className={classes.box}
-        fontSize="h1.fontSize"
-        fontWeight="fontWeightBold"
-        m={1}
-      >
-        <a className={classes.django}>Django</a>
-        <a>+</a>
-        <a className={classes.react}>React JS</a>
-      </Box>
-      <Box fontSize="h1.fontSize" m={1} className={classes.box}>
-        Developer
-      </Box>
-    </Grid>
+    <React.Fragment>
+      <CssBaseline />
+      <main>
+        <div className={classes.content}>
+          <Container maxWidth="sm">
+            <Typography component="h1" variant="h1"  align='center' gutterBottom>
+              Iván Abregú
+            </Typography>
+            <Typography component="h1" variant="h2"  align='center' gutterBottom>
+              <a className={classes.django}>Django</a>
+              <a> + </a>
+              <a className={classes.react}>React.js</a>
+            </Typography>
+            <Typography component="h1" variant="h2"  align='center' gutterBottom>
+              Full Stack Developer
+            </Typography>
+          </Container>
+        </div>
+
+      </main>
+    </React.Fragment>
   );
 }
