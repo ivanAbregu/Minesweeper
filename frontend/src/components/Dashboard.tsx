@@ -7,7 +7,7 @@ import { createStyles, Theme, makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     content: {
-      padding: theme.spacing(22, 10, 0),
+      padding: theme.spacing(12, 10, 0),
     },
     django: {
       color: theme.palette.primary.main,
