@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme: Theme) =>
       'text-align': 'center',
       margin: 30,
     },
-
     card: {
       height: '100%',
       display: 'flex',
@@ -60,21 +59,20 @@ export default function About() {
           </Grid>
         </Grid>
       </Container>
-
-      <Box fontSize="h4.fontSize" m={1} className={classes.box}>
-        I've always had a passion for technology and product development - even before
-        becoming a developer. I use my experience to be more than just a coder,
-        connecting business requirements with modern technology.
-      </Box>
-      <Box fontSize="h4.fontSize" m={1} className={classes.box}>
-        I have 8+ years in IT, 4+ years of development experience building fullstack
-        products from scratch, developing and integrating APIs, working with a variety
-        of databases and clould platforms.
-      </Box>
-      <Box fontSize="h4.fontSize" m={1} className={classes.box}>
-        Below you'll find a list of some of my skills:
-      </Box>
       <Container maxWidth="lg">
+        <Box fontSize="h4.fontSize" m={1} className={classes.box}>
+          I've always had a passion for technology and product development - even before
+          becoming a developer. I use my experience to be more than just a coder,
+          connecting business requirements with modern technology.
+        </Box>
+        <Box fontSize="h4.fontSize" m={1} className={classes.box}>
+          I have 10+ years in IT, 6+ years of development experience building fullstack
+          products from scratch, developing and integrating APIs, working with a variety
+          of databases and clould platforms.
+        </Box>
+        <Box fontSize="h4.fontSize" m={1} className={classes.box}>
+          Below you'll find a list of some of my skills:
+        </Box>
         <Grid container spacing={6}>
           <Grid item xs={12} sm={6} md={3}>
             <CardMedia className={classes.cardImg} image="img/html.png" />
